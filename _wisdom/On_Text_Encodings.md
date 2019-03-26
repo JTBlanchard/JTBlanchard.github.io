@@ -29,9 +29,9 @@ Without Unicode you have to know what language the source text is in to know wha
 
 There are a few different Unicode encodings, but in most cases you should only use one of them.  You should know what the others are in order to understand why you generally shouldn't use them.
 
-UCS encodings are the Universal Character Set represented as pure integers.  UCS-2 and UCS-4 are fixed-byte-width encodings, each named according to the number of bytes.  UCS-1 is the same integer range, but without a fixed number of bytes).
+UCS encodings are the Universal Character Set represented as pure integers.  UCS-2 and UCS-4 are fixed-byte-width encodings, each named according to the number of bytes per character.  UCS-1 is the same integer range, but without a fixed number of bytes per character).
 
-But more often you'll hear about UTF (Unicode Transformation Format).  Their names vary by the minimum number of bits each character will require:  UTF-8, UTF-16, and UTF-32.  UTF-8 and UTF-16 are variable width, and can extend across multiple bytes if the code point doesn't fit in the minimum byte size.  
+But more often you'll hear about UTF (Unicode Transformation Format).  Their names vary by the minimum number of bits each character will require:  UTF-8, UTF-16, and UTF-32.  UTF-8 and UTF-16 are variable width, and can extend across multiple bytes if the code point doesn't fit in the minimum byte size.  Since part of each UTF-8/16/32 byte is a clue as to the position in a multi-byte string, the Unicode character set won't extend as far as the full 32 bit integer space of UTF-32/UCS-4.
 
 * All Unicode encodings map to the same Universal Character Set, and therefore can be re-encoded between each other without conflict or loss.
 
@@ -90,7 +90,7 @@ Because you still have to interact with systems that use other encodings.
 Maybe.  Boiled down, it's this:
 
 * Know your source and destination encodings.
-* If you have a choice, that choice should probably be UTF-8.
+* If you have a choice, that choice should be UTF-8 unless you know it should be something else.
 * Validate input strings and the results of transcoding attempts.  What the program thinks the bits are and what the bits actually are may not be accurate if you didn't control the input and the validation.
 
 Yes, it's aggravating.  And yes, you'll still get bitten.  But now you have the awareness to solve as well as avoid encoding problems.
