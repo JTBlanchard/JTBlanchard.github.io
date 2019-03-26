@@ -1,9 +1,7 @@
 ---
 layout: default
-title: "On Text Encoding"
+title: A brief primer on text encodings
 ---
-
-# A brief primer on text encodings.
 
 As you might expect, text encodings are just conventions for how bits of data represent text.  Encodings will define what numbers represent a character, and may also define how those numbers are represented across multiple bytes.
 
