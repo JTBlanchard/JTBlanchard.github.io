@@ -1,7 +1,3 @@
----
-layout: default
----
-
 # A brief primer on text encodings.
 
 As you might expect, text encodings are just conventions for how bits of data represent text.  Encodings will define what numbers represent a character, and may also define how those numbers are represented across multiple bytes.
@@ -12,11 +8,11 @@ Because when you get text that doesn't match the encoding your program uses or y
 
 ## The old encodings
 
-* **ASCII:**  7 bit encoding used in the olden days, representing the English alphabet plus some special characters.  Why 7?  Because in the days after we standardized on the 8 bit byte but before clock lines were a thing you could expect on a serial bus, we had to fit stop bits in somewhere.
+* **ASCII:**  7 bit encoding used in the olden days, representing the English alphabet plus some special characters.  Why 7?  Because in the days after we standardized on the 8 bit byte but before clock lines were a thing you could expect on a serial bus, we had to fit stop bits in somewhere.  Outside of wireline communication with stop bits, you'll find ASCII exists as full 8 bits, padded with a leading zero.
 
 * **ISO-8859 series (Latin-1 through Latin-16):** A group of 8 bit encodings that each extend ASCII in a different way, allowing for characters outside the standard English alphabet.  Not all the available space was assigned, but there have been unofficial assignments of unused code in this space, which complicates matters.
 
-* Lots and lots of others.  It is essentially a case of every writing system having its own encoding, that may or may not have maintained compatibility with ASCII.
+* Lots and lots of others.  It is essentially a case of every writing system having its own encoding, that may or may not have maintained compatibility with ASCII.  Moreover, each writing system may have a variety of its own, wildly incompatible encodings (Don't laugh, ASCII users!  We still have EBCDIC running around on IBM mainframes.)
 
 ## Enter Unicode
 
@@ -57,6 +53,8 @@ At the level most programmers work, what you care about is maximizing compatibil
 It is a beautiful hack that gives us maximum compatibility in minimum space: 
 
 [![UTF-8 and the Unicode Miracle](https://img.youtube.com/vi/MijmeoH9LT4/0.jpg)](https://www.youtube.com/watch?v=MijmeoH9LT4 "UTF-8 and the Unicode Miracle")
+
+[https://www.youtube.com/watch?v=MijmeoH9LT4](https://www.youtube.com/watch?v=MijmeoH9LT4)
 
 * UTF-8 is designed to be backwards compatible with ASCII and ISO-8859-1.  Anything that would be valid there is a single byte in UTF-8.  That's probably most of your text.  
 
