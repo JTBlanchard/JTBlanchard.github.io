@@ -1,6 +1,5 @@
 ---
 layout: default
-title: On Text Encodings
 ---
 
 # A brief primer on text encodings.
@@ -55,7 +54,9 @@ There are some very specific circumstances where they might be advantageous:
 
 At the level most programmers work, what you care about is maximizing compatibility and minimizing storage space.  UTF-8 gives you that excepting in edge cases.
 
-It is a beautiful hack that gives us maximum compatibility in minimum space:  https://www.youtube.com/watch?v=MijmeoH9LT4
+It is a beautiful hack that gives us maximum compatibility in minimum space: 
+
+[![UTF-8 and the Unicode Miracle](https://img.youtube.com/vi/MijmeoH9LT4/0.jpg)](https://www.youtube.com/watch?v=MijmeoH9LT4 "UTF-8 and the Unicode Miracle")
 
 * UTF-8 is designed to be backwards compatible with ASCII and ISO-8859-1.  Anything that would be valid there is a single byte in UTF-8.  That's probably most of your text.  
 
