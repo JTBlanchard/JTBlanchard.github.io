@@ -1,4 +1,6 @@
-name: Joshua Blanchard
+title: Joshua Blanchard
 markdown: kramdown
 collections:
-    - wisdom
+    wisdom:
+        output: true
+        permalink: wisdom/:path
