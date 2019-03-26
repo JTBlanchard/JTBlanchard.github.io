@@ -51,17 +51,17 @@ There are some very specific circumstances where they might be advantageous:
 
 **You should use UTF-8.**  Unless you know you will be reading or writing to another encoding, in which case you should still consider converting it in between.
 
-At the level most programmers work, what you care about is maximizing compatibility and minimizing storage space.  UTF-8 gives you that excepting in edge cases.
-
 It is a beautiful hack that gives us maximum compatibility in minimum space: 
 
 [![UTF-8 and the Unicode Miracle](https://img.youtube.com/vi/MijmeoH9LT4/0.jpg)](https://www.youtube.com/watch?v=MijmeoH9LT4 "UTF-8 and the Unicode Miracle")
 
 [https://www.youtube.com/watch?v=MijmeoH9LT4](https://www.youtube.com/watch?v=MijmeoH9LT4)
 
-* UTF-8 is designed to be backwards compatible with ASCII and ISO-8859-1.  Anything that would be valid there is a single byte in UTF-8.  That's probably most of your text.  
+At the level in which most programmers work, what you care about is maximizing compatibility and minimizing storage space.  UTF-8 gives you that excepting in edge cases, and those edge cases may not be worth worrying about.
 
-* UTF-8 is endian-independent and most text will end up using fewer bytes.  Unless you're writing a string processor for an OS or programming language or you're dealing exclusively in text files composed *exclusively* of charcters outside of the ISO-8859-1 character set (while also having to preserve every byte), the edge cases aren't going to matter to you. 
+* UTF-8 is designed to be backwards compatible with ASCII.  Anything that would be valid there is a single byte in UTF-8.  That's probably most of your text.  
+
+* UTF-8 is endian-independent and most text will end up using fewer bytes.  Unless you're writing a string processor for an OS or programming language or you're dealing exclusively in text files composed of mostly three or four byte characters (unlikely), the edge cases aren't going to matter to you. 
 
 * The internet has spoken.  UTF-8 is the standard convention for interchanging data now, unless you're the Chinese government (and even they use a form of Unicode, so it converts cleanly).
 
@@ -75,7 +75,9 @@ Because you still have to interact with systems that use other encodings.
 
 * Windows writes UTF-16 by default with the default system endianness...  and when it writes UTF-8, it includes a byte order mark that your string processing library might need to be aware of in order to ignore.
 
-* Old, non-English text files are a thing.  And some people didn't get the memo.  Maybe that plain text file contains some Russian text from the 90s--that's Latin 2.  Many Japanese and Chinese programmers never saw the need to switch.
+* Old, non-English text files are a thing.  And some people didn't get the memo.  Many Japanese and Chinese programmers never saw the need to switch.  Maybe that plain text file contains some Spanish accents--that's Latin 1.  Russian is Latin 5.  Good luck.
+
+* Even English-only text can bite you.  Names can contain all kinds of interesting things, and lots of people still preserve diacritical marks in words like *résumé* or *naïve*.
 
 * Sometimes people screw up and don't transcode properly in pipelines that don't catch the error, so you can't always believe what's on the label.  That web app may not have checked before handing it off to the database to write.  That plain-text log file looks like pure ASCII, so it seems safe to read as UTF-8...  until someone used a Euro sign.  That's not legal UTF-8...  but it is a common convention extending Latin 1.  The UTF-8 text processor would throw a fit, but if you'd read it as Latin 1, the encoder would probably have been aware of that.  
 
