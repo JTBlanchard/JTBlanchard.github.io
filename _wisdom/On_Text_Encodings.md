@@ -11,7 +11,7 @@ Because when you get text that doesn't match the encoding your program uses or y
 
 ## The old encodings
 
-* **ASCII:**  7 bit encoding used in the olden days, representing the English alphabet plus some special characters.  Why 7?  Because in the days after we standardized on the 8 bit byte but before clock lines were a thing you could expect on a serial bus, we had to fit stop bits in somewhere.  Outside of wireline communication with stop bits, you'll find ASCII exists as full 8 bits, padded with a leading zero.
+* **ASCII:**  7 bit encoding used in the olden days, representing the English alphabet plus some special characters.  Why 7?  Because in the days before we did error detection in packets, we put parity bits right in the text.  Outside of ancient forms of wireline communication, you'll find ASCII exists as full 8 bits, padded with a leading zero.
 
 * **ISO-8859 series (Latin-1 through Latin-16):** A group of 8 bit encodings that each extend ASCII in a different way, allowing for characters outside the standard English alphabet.  Not all the available space was assigned, but there have been unofficial assignments of unused code in this space, which complicates matters.
 
