@@ -1,6 +1,9 @@
 title: Joshua Blanchard
 markdown: kramdown
 collections:
-    wisdom:
+    technical:
         output: true
-        permalink: wisdom/:path
+        permalink: technical/:path
+    general:
+        output: true
+        permalink: general/:path

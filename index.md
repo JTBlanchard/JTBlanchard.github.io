@@ -7,6 +7,12 @@ Joshua Blanchard is a data wrangler who has worked in internet delivery, mobile 
 
 Technical writings from Joshua:
 
-{% for page in site.wisdom %}
+{% for page in site.technical %}
+* [{{ page.title }}]({{ page.url }})
+{% endfor %}
+
+Other writings from Joshua:
+
+{% for page in site.general %}
 * [{{ page.title }}]({{ page.url }})
 {% endfor %}
