@@ -79,7 +79,7 @@ Because you still have to interact with systems that use other encodings.
 
 * Even English-only text can bite you.  Names can contain all kinds of interesting things, and lots of people still preserve diacritical marks in words like *résumé* or *naïve*.
 
-* Sometimes people screw up and don't transcode properly in pipelines that don't catch the error, so you can't always believe what's on the label.  That web app may not have checked before handing it off to the database to write.  That plain-text log file looks like pure ASCII, so it seems safe to read as UTF-8...  until someone used a Euro sign.  That's not legal UTF-8...  but it is a common convention extending Latin 1.  The UTF-8 text processor would throw a fit, but if you'd read it as Latin 1, the encoder would probably have been aware of that.  
+* Sometimes people screw up and don't transcode properly in pipelines that don't catch the error, so you can't always believe what's on the label.  That web app may not have checked before handing it off to the database to write.  That plain-text log file looks like pure ASCII, so it seems safe to read as UTF-8...  until months and many gigabytes in a stray Euro sign from Latin 1 encoding appears.  That's not legal UTF-8 (the Euro sign exists in UTF-8, but it's a different value).  The UTF-8 text processor would throw a fit, but if you'd read it as Latin 1, sailing would have continued smoothly.
 
 * Sometimes data gets corrupted or non-text data gets written to a text file, and those bits may not map to a valid UCS code.
 
